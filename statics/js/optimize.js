@@ -33,13 +33,9 @@ Vue.component('optimize-page', {
             });
         },
         optimize: function(){
-            var myVar = this;
             $.ajax({
                 type: "POST",
                 url: "/api/optimize/",
-                data: {
-                    js_data: JSON.stringify(myVar.js_data),
-                },
             }).done(function(result){
                 console.log(result);
             });

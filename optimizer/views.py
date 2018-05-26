@@ -25,7 +25,7 @@ def api_optimize(request):
     df['Buy weight'] = solution.flatten()
     df['New weight'] = df['Weight'] + df['Buy weight']
     df.to_pickle(DB_JS_RESULT_DATA)
-    return HttpResponse(df.to_json(orient='records'), content_type="application/json")
+    return HttpResponse("Problem status: " + status)
 
 @csrf_exempt
 def api_load_data(request):

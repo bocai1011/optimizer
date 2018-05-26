@@ -7,20 +7,35 @@ __all__ = ['opti']
 def build_ff(df,nn):
     rr = df['Yield'].values.tolist()
     return [ -1*v for v in rr] + rr + [0]*2*nn
+    
 def build_Ab(df,agg,nn):
-    ## Yield:
+    columns = agg.index.tolist()
+    columns.remove('Weight')
     AA = []
     bb = []
-    rr = df['Yield'].values.tolist()
-    A1 = rr + [ -1*x for x in rr] + [0]*2*nn
-    b1 = agg.loc['Yield','Max'] - agg.loc['Yield','Portfolio']
-    AA.append(A1)
-    bb.append(b1)
-    A1 = [ -1*x for x in rr] + rr + [0]*2*nn
-    b1 = agg.loc['Yield','Portfolio'] - agg.loc['Yield','Min']
-    AA.append(A1)
-    bb.append(b1)
+    for column in columns:
+        if agg.loc[column,'Constraint']:
+            rr = df[column].values.tolist()
+            A1 = rr + [ -1*x for x in rr] + [0]*2*nn
+            b1 = agg.loc[column,'Max'] - agg.loc[column,'Portfolio']
+            AA.append(A1)
+            bb.append(b1)
+            A1 = [ -1*x for x in rr] + rr + [0]*2*nn
+            b1 = agg.loc[column,'Portfolio'] - agg.loc[column,'Min']
+            AA.append(A1)
+            bb.append(b1)
+    if agg.loc['Weight','Constraint']:
+        rr = [1]*nn
+        A1 = rr + [ -1*x for x in rr] + [0]*2*nn
+        b1 = agg.loc['Weight','Max'] - agg.loc['Weight','Portfolio']
+        AA.append(A1)
+        bb.append(b1)
+        A1 = [ -1*x for x in rr] + rr + [0]*2*nn
+        b1 = agg.loc['Weight','Portfolio'] - agg.loc['Weight','Min']
+        AA.append(A1)
+        bb.append(b1)
     return AA,bb
+
 def build(df,agg):
     nn = len(df)
     AA,bb = build_Ab(df,agg,nn)
