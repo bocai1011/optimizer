@@ -9,7 +9,9 @@ import numpy
 import pandas
 
 DB_JS_DATA = os.path.join(BASE_DIR,'js_data.db')
+DB_JS_RESULT_DATA = os.path.join(BASE_DIR,'js_result_data.db')
 DB_JS_AGG = os.path.join(BASE_DIR,'js_agg.db')
+DB_JS_RESULT_AGG = os.path.join(BASE_DIR,'js_result_agg.db')
 
 def index(request):
     return render(request, 'index.html')
@@ -22,8 +24,10 @@ def api_optimize(request):
     df['Weight'] = df['MV%']
     df['Buy weight'] = solution.flatten()
     df['New weight'] = df['Weight'] + df['Buy weight']
+    df.to_pickle(DB_JS_RESULT_DATA)
     return HttpResponse(df.to_json(orient='records'), content_type="application/json")
 
+@csrf_exempt
 def api_load_data(request):
     if os.path.exists(DB_JS_DATA):
         df = pandas.read_pickle(DB_JS_DATA)
@@ -41,12 +45,30 @@ def api_load_data(request):
         df = df[columns].copy()
     return HttpResponse(df.to_json(orient='records'), content_type="application/json")
 
+@csrf_exempt
+def api_load_result_data(request):
+    if os.path.exists(DB_JS_DATA):
+        df = pandas.read_pickle(DB_JS_RESULT_DATA)
+        return HttpResponse(df.to_json(orient='records'), content_type="application/json")
+    else:
+        return HttpResponse("Error loading result data.",status=404)
+
+@csrf_exempt
 def api_load_agg(request):
     if os.path.exists(DB_JS_AGG):
         agg = pandas.read_pickle(DB_JS_AGG)
     else:
         df = pandas.read_pickle(DB_JS_DATA)
         agg = calculate_agg(df)
+    return HttpResponse(agg.to_json(orient='records'), content_type="application/json")
+
+@csrf_exempt
+def api_load_result_agg(request):
+    if os.path.exists(DB_JS_RESULT_AGG):
+        agg = pandas.read_pickle(DB_JS_RESULT_AGG)
+    else:
+        df = pandas.read_pickle(DB_JS_RESULT_DATA)
+        agg = calculate_result_agg(df)
     return HttpResponse(agg.to_json(orient='records'), content_type="application/json")
 
 @csrf_exempt

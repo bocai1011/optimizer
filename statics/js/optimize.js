@@ -2,6 +2,7 @@ Vue.component('optimize-page', {
     template: '<div>\
         <div id="jsGrid"></div>\
         <button class="w3-button w3-round w3-blue" @click="update_data">Update</button>\
+        <button class="w3-button w3-round w3-blue" @click="optimize">Optimize</button>\
     </div>',
     data: function(){
         return {

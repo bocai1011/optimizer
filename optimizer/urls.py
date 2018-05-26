@@ -19,9 +19,11 @@ from . import views
 
 urlpatterns = [
     path('', views.index),
-    path('api/load_agg/', views.api_load_agg),
-    path('api/load_data/', views.api_load_data),
     path('api/optimize/', views.api_optimize),
+    path('api/load_agg/', views.api_load_agg),
+    path('api/load_result_agg/', views.api_load_result_agg),
+    path('api/load_data/', views.api_load_data),
+    path('api/load_result_data/', views.api_load_result_data),
     path('api/update_agg/', views.api_update_agg),
     path('api/update_data/', views.api_update_data),
     path('admin/', admin.site.urls),
