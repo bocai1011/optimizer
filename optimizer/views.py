@@ -49,6 +49,7 @@ def api_load_data(request):
 def api_load_result_data(request):
     if os.path.exists(DB_JS_DATA):
         df = pandas.read_pickle(DB_JS_RESULT_DATA)
+        df = df[df['Buy weight']!=0].copy()
         return HttpResponse(df.to_json(orient='records'), content_type="application/json")
     else:
         return HttpResponse("Error loading result data.",status=404)

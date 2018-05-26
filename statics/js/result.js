@@ -43,8 +43,8 @@ Vue.component('result-page', {
             paging: true,
             autoload: true,
 
-            pageSize: 10,
-            pageButtonCount: 5,
+            pageSize: 25,
+            pageButtonCount: 3,
 
             deleteConfirm: "Do you really want to delete client?",
 
