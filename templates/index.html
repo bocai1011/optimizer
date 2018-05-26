@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}JSGrid and Django Sample{% endblock %}
+
+{% block head %}
+    <link href="http://js-grid.com/css/jsgrid.min.css" rel="stylesheet" />
+    <link href="http://js-grid.com/css/jsgrid-theme.min.css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <div id="app"><main-page></main-page></div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="http://js-grid.com/js/jsgrid.min.js"></script>
+    <script src="/static/js/vue.js"></script>
+    <script src="/static/js/main.js"></script>
+{% endblock %}
