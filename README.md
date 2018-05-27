@@ -3,9 +3,9 @@ Sample project for Python Django framework and IBM COIN-CBC MILP solver.
 
 ## Quickstart
 
-Firstly download code via git clone:
+First download the master repository by using:
 
-`$ git clone https://github.com/bocai1011/optimizer.git
+`$ git clone https://github.com/bocai1011/optimizer.git`
 
 Optionally, set up a virtualenv. Then:
 
