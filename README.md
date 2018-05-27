@@ -16,3 +16,9 @@ Once dependencies are installed, you can start the Django development server wit
 `$ python manage.py runserver`
 
 Then, navigate to: `http://localhost:8000`
+
+## Sample Page:
+
+![Fail](statics/img/welcome_page.PNG)
+![Fail](statics/img/load_page.PNG)
+![Fail](statics/img/result_page.PNG)
