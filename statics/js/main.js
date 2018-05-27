@@ -8,9 +8,9 @@ Vue.component('main-page', {
     template: '<div>\
         <div class="w3-card-2 w3-black w3-large">\
             <button class="w3-button" @click="switchTab(0)"><img src="/static/img/home.png" style="width:24px;height:24px;margin:0px 12px"/></button>\
-            <button class="w3-button" style="width:30%; text-shadow:1px 1px 0 #444" @click="switchTab(1)">Load Data</button>\
-            <button class="w3-button" style="width:30%; text-shadow:1px 1px 0 #444" @click="switchTab(2)">Optimization</button>\
-            <button class="w3-button" style="width:30%; text-shadow:1px 1px 0 #444" @click="switchTab(3)">Result</button>\
+            <button class="w3-button" style="width:30%; text-shadow:1px 1px 0 #444;font-weight:bold" @click="switchTab(1)">Load Data</button>\
+            <button class="w3-button" style="width:30%; text-shadow:1px 1px 0 #444;font-weight:bold" @click="switchTab(2)">Optimization</button>\
+            <button class="w3-button" style="width:30%; text-shadow:1px 1px 0 #444;font-weight:bold" @click="switchTab(3)">Result</button>\
         </div>\
         <div class="w3-margin">\
             <keep-alive>\
