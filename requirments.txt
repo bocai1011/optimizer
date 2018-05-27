@@ -1,4 +1,4 @@
-Django==1.11
+Django==2.0
 pandas==0.22
 numpy==1.13
 pulp==1.6
