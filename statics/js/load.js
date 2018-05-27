@@ -5,7 +5,7 @@ Vue.component('load-page', {
             <div class="w3-margin-top" style="display:flex;justify-content:flex-end">\
                 <button class="w3-btn w3-blue" style="text-shadow:1px 1px 0 #444; margin:2px" @click="load_data">Load</button>\
                 <button class="w3-btn w3-blue" style="text-shadow:1px 1px 0 #444; margin:2px" @click="update_data">Change</button>\
-                <button class="w3-btn w3-blue" style="text-shadow:1px 1px 0 #444; margin:2px" @click="update_data">Next</button>\
+                <button class="w3-btn w3-blue" style="text-shadow:1px 1px 0 #444; margin:2px" @click="next_page">Next</button>\
             </div>\
         </div>',
     data: function(){
@@ -35,6 +35,13 @@ Vue.component('load-page', {
             }).done(function(result){
                 console.log(result);
             });
+        },
+        next_page: function(){
+            if (this.js_data === null) {
+                alert("Press load data!")
+            } else {
+                this.$emit('next-page',2);
+            }
         },
     },
     mounted: function(){

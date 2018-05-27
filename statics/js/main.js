@@ -7,7 +7,7 @@ Vue.component('main-page', {
         </div>\
         <div class="w3-margin">\
             <keep-alive>\
-                <component v-bind:is="currentTab"></component>\
+                <component v-on:next-page="switchTab" v-bind:is="currentTab"></component>\
             </keep-alive>\
         </div>\
         <footer class="w3-small w3-opacity w3-center w3-margin-top">\

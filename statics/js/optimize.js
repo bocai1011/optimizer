@@ -35,11 +35,12 @@ Vue.component('optimize-page', {
             });
         },
         optimize: function(){
+            var myVar = this;
             $.ajax({
                 type: "POST",
                 url: "/api/optimize/",
             }).done(function(result){
-                console.log(result);
+                myVar.$emit('next-page',3);
             });
         },
     },
