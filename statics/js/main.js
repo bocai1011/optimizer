@@ -10,6 +10,10 @@ Vue.component('main-page', {
                 <component v-bind:is="currentTab"></component>\
             </keep-alive>\
         </div>\
+        <footer class="w3-small w3-opacity w3-center w3-margin-top">\
+            <hr>\
+            © 2018, Bo Cai. All Rights Reserved.\
+        </footer>\
     </div>',
     data: function(){
         return {
