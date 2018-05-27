@@ -47,7 +47,7 @@ Vue.component('load-page', {
             editing: true,
             sorting: true,
             paging: true,
-            autoload: true,
+            autoload: false,
 
             pageSize: 10,
             pageButtonCount: 5,

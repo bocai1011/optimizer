@@ -49,11 +49,11 @@ Vue.component('optimize-page', {
             height: "400px",
 
             filtering: false,
-            inserting: true,
+            inserting: false,
             editing: true,
-            sorting: true,
-            paging: true,
-            autoload: true,
+            sorting: false,
+            paging: false,
+            autoload: false,
 
             pageSize: 10,
             pageButtonCount: 5,
