@@ -51,7 +51,7 @@ Vue.component('optimize-page', {
             filtering: false,
             inserting: false,
             editing: true,
-            sorting: false,
+            sorting: true,
             paging: false,
             autoload: false,
 
@@ -66,11 +66,11 @@ Vue.component('optimize-page', {
                 },
             },
             fields: [
-                { name: "Column", type: "text",},
-                { name: "Portfolio", type: "text",},
+                { name: "Column", type: "text", editing: false,},
+                { name: "Portfolio", type: "text", editing: false,},
                 { name: "Max", type: "text",},
                 { name: "Min", type: "text",},
-                { name: "Constraint", type: "checkbox",},
+                { name: "Constraint", type: "checkbox",title:"Apply"},
                 { type: "control" }
             ]
         });
