@@ -1,9 +1,9 @@
-# Portfolio Optimizer 
+# Portfolio Optimizer (v1.0)
 Sample project for Python Django framework and IBM COIN-CBC MILP solver. 
 
 ## Quickstart
 
-First download the master repository by using:
+Download the master repository via git clone:
 
 `$ git clone https://github.com/bocai1011/optimizer.git`
 
