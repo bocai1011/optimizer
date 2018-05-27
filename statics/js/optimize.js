@@ -1,8 +1,10 @@
 Vue.component('optimize-page', {
-    template: '<div>\
-        <div id="jsGrid"></div>\
-        <button class="w3-button w3-round w3-blue" @click="update_data">Update</button>\
-        <button class="w3-button w3-round w3-blue" @click="optimize">Optimize</button>\
+    template: '<div style="width:80%">\
+        <div class="w3-card" id="jsGrid"></div>\
+        <div class="w3-margin-top" style="display:flex;justify-content:flex-end">\
+            <button class="w3-btn w3-blue" style="text-shadow:1px 1px 0 #444; margin:2px" @click="update_data">Change</button>\
+            <button class="w3-btn w3-blue" style="text-shadow:1px 1px 0 #444; margin:2px" @click="optimize">Optimize</button>\
+        </div>\
     </div>',
     data: function(){
         return {
@@ -43,7 +45,7 @@ Vue.component('optimize-page', {
     },
     mounted: function(){
         $("#jsGrid").jsGrid({
-            width: "80%",
+            width: "100%",
             height: "400px",
 
             filtering: false,

@@ -1,7 +1,7 @@
 Vue.component('result-page', {
     template: '<div>\
-        <div id="aggGrid"></div>\
-        <div id="jsGrid"></div>\
+        <div class="w3-card w3-margin-bottom" id="aggGrid"></div>\
+        <div class="w3-card" id="jsGrid"></div>\
     </div>',
     data: function(){
         return {
