@@ -1,10 +1,11 @@
 Vue.component('load-page', {
     template: '\
         <div>\
-            <div id="jsGrid"></div>\
-            <div class="w3-margin-top">\
-                <button class="w3-button w3-round w3-blue" @click="load_data">Load Data</button>\
-                <button class="w3-button w3-round w3-blue" @click="update_data">Update</button>\
+            <div class="w3-card" id="jsGrid"></div>\
+            <div class="w3-margin-top" style="display:flex;justify-content:flex-end">\
+                <button class="w3-btn w3-blue" style="text-shadow:1px 1px 0 #444; margin:2px" @click="load_data">Load</button>\
+                <button class="w3-btn w3-blue" style="text-shadow:1px 1px 0 #444; margin:2px" @click="update_data">Change</button>\
+                <button class="w3-btn w3-blue" style="text-shadow:1px 1px 0 #444; margin:2px" @click="update_data">Next</button>\
             </div>\
         </div>',
     data: function(){
@@ -38,7 +39,7 @@ Vue.component('load-page', {
     },
     mounted: function(){
         $("#jsGrid").jsGrid({
-            width: "95%",
+            width: "100%",
             height: "600px",
 
             filtering: false,
