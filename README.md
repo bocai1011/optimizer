@@ -1,6 +1,5 @@
 # Portfolio Optimizer 
-Sample project for Python Django and JavaScript Vuejs framework.
-This application utilize COIN-CBC as Mixed Integer Linear Programing Solver to optimize Fixed-income portfolio based on certain benchmark. 
+Sample project for Python Django framework and IBM COIN-CBC MILP solver. 
 
 ## Quickstart
 
