@@ -25,6 +25,10 @@ Vue.component('load-page', {
             });
         },
         update_data: function(){
+            if (this.js_data === null) {
+                alert("Press load data!");
+                return;
+            }
             var myVar = this;
             $.ajax({
                 type: "POST",
