@@ -1,4 +1,4 @@
-# jsgrid-django
+# Portfolio Optimizer 
 Sample project for Python Django REST service
 
 ## Quickstart
