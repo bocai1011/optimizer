@@ -43,6 +43,9 @@ def api_load_data(request):
         df['Duration'] = df['OAD']
         df['Spread'] = df['OAS']
         df = df[columns].copy()
+        process_df(df)
+        df.to_pickle(DB_JS_DATA)
+        df = format_df(df)
     return HttpResponse(df.to_json(orient='records'), content_type="application/json")
 
 @csrf_exempt
