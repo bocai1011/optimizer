@@ -1,3 +1,4 @@
+'use strict';
 Vue.component('optimize-page', {
     template: '<div style="width:80%">\
         <div class="w3-card" id="jsGrid"></div>\

@@ -1,3 +1,4 @@
+'use strict';
 Vue.component('welcome-page', {
     template: '<div style="height:650px;display:flex;align-items:center;justify-content:center">\
         <img class="w3-animate-left" src="/static/img/Mushroom.png" style="width:200px;height:200px;"/>\

@@ -1,3 +1,4 @@
+'use strict';
 Vue.component('load-page', {
     template: '\
         <div>\
@@ -72,7 +73,7 @@ Vue.component('load-page', {
                     for (var myKey in filter){
                         if (filter[myKey] != '') nf[myKey] = filter[myKey]
                     }
-                    cols = Object.keys(nf);
+                    var cols = Object.keys(nf);
                     if (cols.length == 0) return myVar.js_data;
                     return $.grep(myVar.js_data,function(row){
                         var ret = true;

@@ -1,3 +1,4 @@
+'use strict';
 Vue.component('result-page', {
     template: '<div>\
         <div class="w3-large" style="font-weight:bold"> Result: </div>\
