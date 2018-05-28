@@ -1,6 +1,8 @@
 Vue.component('result-page', {
     template: '<div>\
+        <div class="w3-large" style="font-weight:bold"> Result: </div>\
         <div class="w3-card w3-margin-bottom" id="aggGrid"></div>\
+        <div class="w3-large" style="font-weight:bold"> Trades: </div>\
         <div class="w3-card" id="jsGrid"></div>\
     </div>',
     data: function(){

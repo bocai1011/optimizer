@@ -81,7 +81,7 @@ Vue.component('load-page', {
                 { name: "Yield", type: "text",width:"65px"},
                 { name: "MV%", type: "text",width:"65px"},
                 { name: "Total MV", type: "text",},
-                { type: "control" }
+                { type: "control", }
             ]
         });
 

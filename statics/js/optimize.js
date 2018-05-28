@@ -72,7 +72,7 @@ Vue.component('optimize-page', {
                 { name: "Max", type: "text",},
                 { name: "Min", type: "text",},
                 { name: "Constraint", type: "checkbox",title:"Apply"},
-                { type: "control" }
+                { type: "control", deleteButton: false }
             ]
         });
 
