@@ -21,7 +21,7 @@ Vue.component('load-page', {
                 url: "/api/load_data",
             }).done(function(result) {
                 myVar.js_data = result;
-                $("#jsGrid").jsGrid("loadData", result);
+                $("#jsGrid").jsGrid("loadData", null);
             });
         },
         update_data: function(){
@@ -49,11 +49,12 @@ Vue.component('load-page', {
         },
     },
     mounted: function(){
+        var myVar = this;
         $("#jsGrid").jsGrid({
             width: "100%",
             height: "600px",
 
-            filtering: false,
+            filtering: true,
             inserting: true,
             editing: true,
             sorting: true,
@@ -66,8 +67,22 @@ Vue.component('load-page', {
             deleteConfirm: "Do you really want to delete client?",
 
             controller: {
-                loadData: function(data){
-                    return data;
+                loadData: function(filter){
+                    var nf = {}
+                    for (var myKey in filter){
+                        if (filter[myKey] != '') nf[myKey] = filter[myKey]
+                    }
+                    cols = Object.keys(nf);
+                    if (cols.length == 0) return myVar.js_data;
+                    return $.grep(myVar.js_data,function(row){
+                        var ret = true;
+                        var tmp = false;
+                        for (var i in cols) {
+                            tmp = (row[cols[i]].indexOf(nf[cols[i]]) > -1)
+                            ret = ret & tmp;
+                        }
+                        return ret;
+                    });
                 },
             },
             fields: [
