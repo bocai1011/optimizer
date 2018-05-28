@@ -65,10 +65,13 @@ def api_load_result_data(request):
 def api_load_agg(request):
     if os.path.exists(DB_JS_AGG):
         agg = pandas.read_pickle(DB_JS_AGG)
-    else:
+        return HttpResponse(agg.to_json(orient='records'), content_type="application/json")
+    elif os.path.exists(DB_JS_DATA):
         df = pandas.read_pickle(DB_JS_DATA)
         agg = calculate_agg(df)
-    return HttpResponse(agg.to_json(orient='records'), content_type="application/json")
+        return HttpResponse(agg.to_json(orient='records'), content_type="application/json")
+    else:
+        return HttpResponse("Agg is not available!",stats=404)
 
 @csrf_exempt
 def api_load_result_agg(request):
