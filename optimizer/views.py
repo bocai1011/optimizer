@@ -71,7 +71,7 @@ def api_load_agg(request):
         agg = calculate_agg(df)
         return HttpResponse(agg.to_json(orient='records'), content_type="application/json")
     else:
-        return HttpResponse("Agg is not available!",stats=404)
+        return HttpResponse("Agg is not available!",status=404)
 
 @csrf_exempt
 def api_load_result_agg(request):
@@ -83,7 +83,7 @@ def api_load_result_agg(request):
         agg = calculate_result_agg(df)
         return HttpResponse(agg.to_json(orient='records'), content_type="application/json")
     else:
-        return HttpResponse("Reuslt AGG is not available!",stats=404)
+        return HttpResponse("Reuslt AGG is not available!",status=404)
 
 @csrf_exempt
 def api_update_agg(request):
