@@ -19,7 +19,11 @@ def index(request):
 @csrf_exempt
 def api_optimize(request):
     df = pandas.read_pickle(DB_JS_DATA)
-    agg = pandas.read_pickle(DB_JS_AGG)
+    try:
+        agg = pandas.read_pickle(DB_JS_AGG)
+    except:
+        agg = calculate_agg(df)
+        df.to_pickle(DB_JS_AGG)
     status, solution = opti(df,agg)
     df['Weight'] = df['MV%']
     df['Buy weight'] = solution.flatten()
