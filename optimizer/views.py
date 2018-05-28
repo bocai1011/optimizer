@@ -23,7 +23,7 @@ def api_optimize(request):
         agg = pandas.read_pickle(DB_JS_AGG)
     except:
         agg = calculate_agg(df)
-        df.to_pickle(DB_JS_AGG)
+        agg.to_pickle(DB_JS_AGG)
     status, solution = opti(df,agg)
     df['Weight'] = df['MV%']
     df['Buy weight'] = solution.flatten()
